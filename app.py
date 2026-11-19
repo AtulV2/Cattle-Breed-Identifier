@@ -27,7 +27,7 @@ from ml_core import (
 
 # Page configuration
 st.set_page_config(
-    page_title="Livestock Breed ID",
+    page_title="Cattle Breed Identifier",
     page_icon="🐄",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -131,7 +131,7 @@ def reset_all_state():
 # -------------------------------------------------------------
 with st.sidebar:
     st.markdown("## 🐄 Cattle Breed ID")
-    st.caption("AI-Assisted Livestock Identification")
+    st.caption("AI-Assisted Cattle Breed Identification")
     st.markdown("---")
 
     st.subheader(f"Recognized Breeds ({len(TARGET_BREEDS)})")
@@ -156,7 +156,7 @@ with st.sidebar:
 # -------------------------------------------------------------
 # Main Header
 # -------------------------------------------------------------
-st.markdown('<div class="header-title">🐄 Livestock Breed Identification</div>', unsafe_allow_html=True)
+st.markdown('<div class="header-title">🐄 Cattle Breed Identifier</div>', unsafe_allow_html=True)
 st.markdown(
     '<div class="header-subtitle">Upload or photograph cattle to automatically locate the animal and identify its breed with confidence scoring.</div>', 
     unsafe_allow_html=True
@@ -383,7 +383,7 @@ if images_to_process:
 # -------------------------------------------------------------
 if st.session_state["census_log"]:
     st.subheader("📋 Session Records")
-    st.caption("Live log of analyzed livestock images during this session.")
+    st.caption("Live log of analyzed cattle images during this session.")
 
     df_log = pd.DataFrame(st.session_state["census_log"])
     st.dataframe(df_log, use_container_width=True)
@@ -397,7 +397,7 @@ if st.session_state["census_log"]:
         st.download_button(
             label="📥 Download CSV",
             data=csv_bytes,
-            file_name=f"livestock_census_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+            file_name=f"cattle_census_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv",
         )
     with btn_col2:

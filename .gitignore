@@ -50,6 +50,8 @@ Thumbs.db
 
 # Explicitly ensure model weights are tracked
 !yolov8s.pt
+!cattle_mobilenetv2.weights.h5
 !livestock_mobilenetv2.weights.h5
 !models/yolov8s.pt
+!models/cattle_mobilenetv2.weights.h5
 !models/livestock_mobilenetv2.weights.h5

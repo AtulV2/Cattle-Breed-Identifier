@@ -25,7 +25,9 @@ if not os.path.exists(DATASET_DIR):
         DATASET_DIR = alt_cattle
 
 # Path where trained weights will be saved (strictly inside models/)
-WEIGHTS_PATH = os.path.join(MODELS_DIR, "livestock_mobilenetv2.weights.h5")
+PRIMARY_WEIGHTS = os.path.join(MODELS_DIR, "cattle_mobilenetv2.weights.h5")
+FALLBACK_WEIGHTS = os.path.join(MODELS_DIR, "livestock_mobilenetv2.weights.h5")
+WEIGHTS_PATH = PRIMARY_WEIGHTS if os.path.exists(PRIMARY_WEIGHTS) else (FALLBACK_WEIGHTS if os.path.exists(FALLBACK_WEIGHTS) else PRIMARY_WEIGHTS)
 
 import tensorflow as tf
 from ml_core import (
@@ -58,7 +60,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     print("=" * 60)
-    print("      Livestock Breed ID - MobileNetV2 Classifier Trainer")
+    print("      Cattle Breed Identifier - MobileNetV2 Classifier Trainer")
     print("=" * 60)
     print(f"Project Root: {PROJECT_ROOT}")
     print(f"Dataset Path: {DATASET_DIR}")

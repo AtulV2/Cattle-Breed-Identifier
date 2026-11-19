@@ -1,6 +1,6 @@
 # 🏗️ Architecture & System Design
 
-This document details the software architecture, machine learning pipeline, state management, and algorithmic design choices powering the **Livestock Breed Identification System**.
+This document details the software architecture, machine learning pipeline, state management, and algorithmic design choices powering the **Cattle Breed Identifier**.
 
 ---
 
@@ -152,7 +152,7 @@ To prevent re-running inference on every keystroke or tab switch:
 | :--- | :--- | :--- |
 | **Application Process** | Single Python process | `streamlit run app.py` serving both UI and in-memory inference |
 | **Cloud Target** | Streamlit Community Cloud | Native deployment from GitHub via `share.streamlit.io` |
-| **Model Storage** | `models/` directory | `yolov8s.pt` (22.6 MB) and `livestock_mobilenetv2.weights.h5` (17.6 MB) |
+| **Model Storage** | `models/` directory | `yolov8s.pt` (22.6 MB) and `cattle_mobilenetv2.weights.h5` (17.6 MB) |
 | **Inference Mode** | CPU-Optimized | Vectorized NumPy / TensorFlow execution (`CUDA_VISIBLE_DEVICES = -1`) |
 | **Explainability** | Top-1 + Top-3 distribution | Primary match with confidence badge + candidate probabilities |
 | **Audit Logging** | In-Memory Session Log | Interactive tabular view with standardized CSV export |

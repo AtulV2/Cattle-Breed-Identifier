@@ -1,4 +1,4 @@
-# 🐄 Livestock Breed Identification System
+# 🐄 Cattle Breed Identifier
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -29,7 +29,7 @@ flowchart TD
 
 ### Why a Two-Stage Pipeline?
 Direct classification models often misclassify background objects, humans, or non-target animals as breeds. By placing **YOLOv8s** (COCO Class 19: `cow`) as a gatekeeper:
-1. **Zero False Positives on Non-Livestock:** Non-cattle images are identified and rejected before classification.
+1. **Zero False Positives on Non-Cattle:** Non-cattle images are identified and rejected before classification.
 2. **Background Invariance:** Cluttered farm backgrounds and handlers are removed, feeding only the padded animal patch to MobileNetV2 for maximum classification accuracy.
 
 ---
@@ -37,10 +37,10 @@ Direct classification models often misclassify background objects, humans, or no
 ## ✨ Features
 
 - **🌐 Streamlit Cloud Native:** Single-process Python web app requiring no external backend or Node.js server.
-- **⚡ Pre-Trained Weights Included:** Ships with `livestock_mobilenetv2.weights.h5` (~16.8 MB) and `yolov8s.pt` (~21.5 MB)—**ready to run out of the box with zero retraining needed**.
+- **⚡ Pre-Trained Weights Included:** Ships with `cattle_mobilenetv2.weights.h5` (~16.8 MB) and `yolov8s.pt` (~21.5 MB)—**ready to run out of the box with zero retraining needed**.
 - **📷 Multi-Mode Input:**
   - Multi-image drag & drop (`.jpg`, `.jpeg`, `.png`, `.webp`)
-  - Live camera capture for field livestock officers using phones or tablets
+  - Live camera capture for field enumerators using phones or tablets
   - Quick sample gallery for instant 1-click evaluation
 - **📊 Top-K Explainability:** View the primary predicted breed along with Top-3 probability rankings.
 - **📋 Digital Census Logging:** Automatically logs each analyzed image into an audit table with timestamp and detection latency, downloadable as a `.csv` report.
@@ -63,7 +63,7 @@ Comprehensive technical guides are available in the **[`docs/`](docs/)** directo
 ## 📁 Repository Structure
 
 ```text
-Livestock_Breed_ID/
+Cattle-Breed-Identifier/
 ├── .streamlit/
 │   └── config.toml                    # Streamlit theme, UI colors & max upload size
 ├── data/
@@ -81,7 +81,7 @@ Livestock_Breed_ID/
 │   └── API_REFERENCE.md               # Python API reference & code examples
 ├── models/
 │   ├── yolov8s.pt                     # Pre-trained YOLOv8s cattle detection weights (22.6 MB)
-│   └── livestock_mobilenetv2.weights.h5 # Pre-trained MobileNetV2 50-breed weights (17.6 MB)
+│   └── cattle_mobilenetv2.weights.h5  # Pre-trained MobileNetV2 50-breed weights (17.6 MB)
 ├── scripts/
 │   ├── test_inference.py              # Standalone CLI testing script
 │   └── train_classifier.py            # Standalone training script
@@ -106,16 +106,16 @@ Make sure your project is committed and pushed to your GitHub account:
 ```bash
 git init
 git add .
-git commit -m "Deploy Livestock Breed ID to Streamlit Cloud"
+git commit -m "Deploy Cattle Breed Identifier to Streamlit Cloud"
 git branch -M main
-git remote add origin https://github.com/<YOUR_USERNAME>/<YOUR_REPOSITORY>.git
+git remote add origin https://github.com/<YOUR_USERNAME>/Cattle-Breed-Identifier.git
 git push -u origin main
 ```
 
 ### Step 2: Connect to Streamlit Community Cloud
 1. Go to **[https://share.streamlit.io/](https://share.streamlit.io/)** and sign in with your GitHub account.
 2. Click **"Create app"** or **"New app"**.
-3. Select your repository: `<YOUR_USERNAME>/<YOUR_REPOSITORY>`.
+3. Select your repository: `<YOUR_USERNAME>/Cattle-Breed-Identifier`.
 4. Set the **Branch** to: `main`.
 5. Set the **Main file path** to: `app.py`.
 6. (Optional) Under **Advanced settings**, ensure Python version is set to `3.10` or `3.11`.
@@ -131,8 +131,8 @@ If you wish to run the application locally on your computer:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/Livestock_Breed_ID.git
-cd Livestock_Breed_ID
+git clone https://github.com/<YOUR_USERNAME>/Cattle-Breed-Identifier.git
+cd Cattle-Breed-Identifier
 ```
 
 ### 2. Create & Activate a Virtual Environment

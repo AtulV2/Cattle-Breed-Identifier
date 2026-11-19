@@ -1,6 +1,6 @@
-# 📚 Livestock Breed Identification — Documentation Hub
+# 📚 Cattle Breed Identifier — Documentation Hub
 
-Welcome to the technical documentation for the **Livestock Breed Identification System**. This directory contains comprehensive technical guides, architecture specifications, deployment instructions, and dataset references for developers, researchers, and field teams.
+Welcome to the technical documentation for the **Cattle Breed Identifier**. This directory contains comprehensive technical guides, architecture specifications, deployment instructions, and dataset references for developers, researchers, and field teams.
 
 ---
 
@@ -39,7 +39,7 @@ This system solves these issues through a **decoupled two-stage AI architecture*
 ## 🏗️ Repository Architecture Summary
 
 ```text
-Livestock_Breed_ID/
+Cattle-Breed-Identifier/
 ├── .streamlit/
 │   └── config.toml             # Streamlit UI theme, emerald palette & server upload limits
 ├── data/
@@ -54,7 +54,7 @@ Livestock_Breed_ID/
 │   └── API_REFERENCE.md        # Python API documentation and code examples
 ├── models/
 │   ├── yolov8s.pt              # Pre-trained YOLOv8s cattle detection weights (22.6 MB)
-│   └── livestock_mobilenetv2.weights.h5 # Pre-trained MobileNetV2 50-breed weights (17.6 MB)
+│   └── cattle_mobilenetv2.weights.h5 # Pre-trained MobileNetV2 50-breed weights (17.6 MB)
 ├── scripts/
 │   ├── test_inference.py       # Standalone CLI one-shot test script
 │   └── train_classifier.py     # Local classifier fine-tuning script

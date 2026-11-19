@@ -1,6 +1,6 @@
 # 🚀 Getting Started & Deployment Guide
 
-This guide walks you through setting up and running the **Livestock Breed Identification System** locally, executing the included command-line scripts, and deploying to **Streamlit Community Cloud (`share.streamlit.io`)**.
+This guide walks you through setting up and running the **Cattle Breed Identifier** locally, executing the included command-line scripts, and deploying to **Streamlit Community Cloud (`share.streamlit.io`)**.
 
 ---
 
@@ -18,8 +18,8 @@ This guide walks you through setting up and running the **Livestock Breed Identi
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/Livestock_Breed_ID.git
-cd Livestock_Breed_ID
+git clone https://github.com/<YOUR_USERNAME>/Cattle-Breed-Identifier.git
+cd Cattle-Breed-Identifier
 ```
 
 ### Step 2: Create a Virtual Environment
@@ -108,7 +108,7 @@ python scripts/train_classifier.py --epochs 20 --force
 - `--batch-size <int>`: Batch size for training (default: `32`).
 - `--force`: Force training even if pre-trained weights already exist in `models/`.
 
-*Note: The script automatically creates `models/` if absent and guarantees that trained weights are saved directly to `models/livestock_mobilenetv2.weights.h5`.*
+*Note: The script automatically creates `models/` if absent and guarantees that trained weights are saved directly to `models/cattle_mobilenetv2.weights.h5`.*
 
 ---
 
@@ -121,14 +121,14 @@ If your repository is not yet pushed to GitHub, run the following commands:
 ```bash
 git init
 git add .
-git commit -m "Deploy Livestock Breed ID System"
+git commit -m "Deploy Cattle Breed Identifier"
 git branch -M main
 git remote add origin https://github.com/<YOUR_USERNAME>/<YOUR_REPOSITORY>.git
 git push -u origin main
 ```
 
 > [!IMPORTANT]
-> The pre-trained model weights (`models/yolov8s.pt` at 22.6 MB and `models/livestock_mobilenetv2.weights.h5` at 17.6 MB) are well below GitHub's 100 MB hard limit and are pushed directly without requiring Git LFS.
+> The pre-trained model weights (`models/yolov8s.pt` at 22.6 MB and `models/cattle_mobilenetv2.weights.h5` at 17.6 MB) are well below GitHub's 100 MB hard limit and are pushed directly without requiring Git LFS.
 
 ### Step 2: Configure Streamlit Community Cloud
 1. Navigate to **[https://share.streamlit.io/](https://share.streamlit.io/)** and sign in with your GitHub account.

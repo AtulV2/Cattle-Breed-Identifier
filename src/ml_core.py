@@ -34,7 +34,9 @@ if not os.path.exists(DATASET_DIR):
         DATASET_DIR = alt_cattle
 
 # Canonical paths inside models/ folder
-WEIGHTS_PATH = os.path.join(MODELS_DIR, 'livestock_mobilenetv2.weights.h5')
+PRIMARY_WEIGHTS = os.path.join(MODELS_DIR, 'cattle_mobilenetv2.weights.h5')
+FALLBACK_WEIGHTS = os.path.join(MODELS_DIR, 'livestock_mobilenetv2.weights.h5')
+WEIGHTS_PATH = PRIMARY_WEIGHTS if os.path.exists(PRIMARY_WEIGHTS) else FALLBACK_WEIGHTS
 YOLO_MODEL_PATH = os.path.join(MODELS_DIR, 'yolov8s.pt')
 
 IMG_SIZE = (224, 224)
@@ -177,9 +179,15 @@ class BreedClassifier:
         if model_weights_path is None:
             model_weights_path = WEIGHTS_PATH
         if not os.path.exists(model_weights_path):
-            alt_root = os.path.join(PROJECT_ROOT, "livestock_mobilenetv2.weights.h5")
-            if os.path.exists(alt_root):
-                model_weights_path = alt_root
+            for candidate in [
+                os.path.join(MODELS_DIR, "cattle_mobilenetv2.weights.h5"),
+                os.path.join(MODELS_DIR, "livestock_mobilenetv2.weights.h5"),
+                os.path.join(PROJECT_ROOT, "cattle_mobilenetv2.weights.h5"),
+                os.path.join(PROJECT_ROOT, "livestock_mobilenetv2.weights.h5")
+            ]:
+                if os.path.exists(candidate):
+                    model_weights_path = candidate
+                    break
         if model_weights_path and os.path.exists(model_weights_path):
             self.load_model(model_weights_path)
 

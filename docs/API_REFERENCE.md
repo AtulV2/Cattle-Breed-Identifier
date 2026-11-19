@@ -13,7 +13,7 @@ The module dynamically discovers project directories relative to `src/`:
 - `MODELS_DIR` $\rightarrow$ `models/`
 - `DATA_DIR` $\rightarrow$ `data/`
 - `BREEDS_FILE` $\rightarrow$ `data/breeds.json`
-- `WEIGHTS_PATH` $\rightarrow$ `models/livestock_mobilenetv2.weights.h5`
+- `WEIGHTS_PATH` $\rightarrow$ `models/cattle_mobilenetv2.weights.h5`
 - `YOLO_MODEL_PATH` $\rightarrow$ `models/yolov8s.pt`
 
 ---
@@ -76,7 +76,7 @@ Computes ranked Top-K candidate probabilities.
 
 ##### `train_model(train_ds, val_ds, epochs: int = 10, save_path: str = None) -> History`
 Fits the classification head on training data and automatically creates the target directory before saving weights.
-- **Default `save_path`:** `models/livestock_mobilenetv2.weights.h5`.
+- **Default `save_path`:** `models/cattle_mobilenetv2.weights.h5`.
 
 ##### `load_model(weights_path: str)`
 Loads `.weights.h5` weights into the compiled Keras graph with fallback checking.
